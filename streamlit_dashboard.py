@@ -74,10 +74,6 @@ def generate_relational_graph(df, columns):
 
 # ... Rest of your code ...
 
-
-
-
-
 def main():
     # Cargar un archivo CSV o Excel
     file = st.file_uploader("Cargar un archivo CSV o Excel", type=["csv", "xlsx"])
@@ -115,14 +111,13 @@ def main():
         with st.expander("Mapa de Calor de Correlación"):
             numeric_columns = df.select_dtypes(include=[float, int]).columns
             corr_matrix = df[numeric_columns].corr()
-            fig = ff.create_annotated_heatmap(
+            fig = go.Figure(data=go.Heatmap(
                 z=corr_matrix.values,
                 x=corr_matrix.columns.tolist(),
                 y=corr_matrix.index.tolist(),
                 colorscale=["blue", "red"],  # Colormap personalizado
-                annotation_text=corr_matrix.round(2).values,
-                showscale=True,
-            )
+                colorbar=dict(title="Correlación"),
+            ))
             fig.update_layout(width=800, height=500, title="Mapa de Calor de Correlación")
             st.plotly_chart(fig)
 
