@@ -3,4 +3,4 @@ streamlit
 plotly
 numpy
 plotly-express
-plotly-figure-factory
+plotly.graph_objects

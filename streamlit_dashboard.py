@@ -1,9 +1,9 @@
 import pandas as pd
 import streamlit as st
 import plotly.express as px
-import plotly.figure_factory as ff
 import plotly.graph_objects as go
 import numpy as np
+
 # Establecer el tema para los gráficos de Plotly
 px.defaults.template = "plotly_dark"
 
@@ -14,7 +14,7 @@ st.set_option('deprecation.showPyplotGlobalUse', False)
 st.set_page_config(layout="wide")
 st.title("GraphInsight")
 
-import numpy as np
+# ... Rest of your code ...
 
 def generate_relational_graph(df, columns):
     fig = go.Figure()
@@ -71,6 +71,9 @@ def generate_relational_graph(df, columns):
 
     # Display the graph
     st.plotly_chart(fig)
+
+# ... Rest of your code ...
+
 
 
 
